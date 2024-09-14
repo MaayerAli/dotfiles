@@ -1,0 +1,1 @@
+All my dotfiles are stored here. My configuration for polybar, rofi, i3wm and some more stuff. Last thing... I use Arch btw![Rice](https://github.com/user-attachments/assets/fb9dd605-e455-4d24-bccf-bd0889729c24)
