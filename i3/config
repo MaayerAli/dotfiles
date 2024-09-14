@@ -1,0 +1,153 @@
+#### I3 WM CONFIG BY diws ####
+
+
+### ModKey
+set $mod Mod4
+
+### Restart
+bindsym $mod+Shift+r restart
+### Wifi Menu
+bindsym $mod+i exec bash "./rofi-wifi-menu.sh"
+### Power Menu
+bindsym $mod+Escape exec rofi -show menu -modi "menu:/home/maayerali/rofi-power-menu --choices=shutdown/reboot/suspend/logout/hibernate"
+### Font
+font pango:JetBrains Mono 12
+
+### System Tray GUI
+#exec --no-startup-id nm-applet
+
+### Audio
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+### Brightness
+bindsym $mod+v exec --no-startup-id brightnessctl set +5%
+bindsym $mod+Shift+v exec --no-startup-id brightnessctl set 5%-
+
+### Panel/Bar
+exec_always --no-startup-id polybar
+### Titlebar
+#tiling_drag modifier titlebar
+
+### Border Pixel
+default_border pixel 2
+
+### Border Hide (when only 1 window)
+#hide_edge_borders smart
+
+### Border Color
+#name     
+
+### Border Controler
+# none = no border, normal = default i3, 1pixel = 1pixel border
+bindsym $mod+Shift+x border none
+bindsym $mod+Shift+n border normal
+bindsym $mod+Shift+o border 1pixel
+
+### Gaps
+gaps inner 2
+gaps outer 2
+
+### Change Window Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+	##### alternative ##### 
+	bindsym $mod+z focus left
+	bindsym $mod+x focus up
+
+### Move Focused Window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Move Focused Window (with Mouse)
+floating_modifier $mod
+
+### Change Window Split (hor/ver)
+bindsym $mod+h split h
+
+
+### Window Fullscreen
+bindsym $mod+f fullscreen
+
+### Window Layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+e layout toggle split
+
+### Floating/Tiling Window
+bindsym $mod+Shift+space floating toggle
+
+### Window Resize
+bindsym $mod+r mode "resize" 
+mode "resize" {
+		bindsym $mod+r mode "default"
+	    	bindsym Left resize shrink width 10 px or 10 ppt
+       		bindsym Down resize grow height 10 px or 10 ppt
+       		bindsym Up resize shrink height 10 px or 10 ppt
+        	bindsym Right resize grow width 10 px or 10 ppt
+}
+
+### Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+### Switch Workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+### Move Window to Workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+### Applications Autostart ###
+exec_always feh --bg-fill /home/maayerali/Pictures/arch.png
+exec_always xrandr --output DP-0 --mode 1920x1080 --rate 165.00
+exec_always bluetoothctl
+exec_always picom -f
+exec_always /usr/lib/xfce-polkit/xfce-polkit 
+#exec xautolock -time 20 -locker "systemctl suspend"
+#exec_alwaysredshift -l latit:longi
+#exec_always --no-startup-id polybar -c ~/.config/i3/polybar.ini i3
+#exec . ~/.config/lemonbar/night_theme
+ 
+
+### Applications Launch ###
+bindsym $mod+Return exec kitty
+bindsym $mod+w exec rofi -show window
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+e exec rofi -show emoji
+bindsym $mod+s exec xfce4-screenshooter
+bindsym $mod+space exec vlc
+bindsym $mod+Shift+f exec librewolf
+### Kill Applications ###
+bindsym $mod+q kill
+
+#
+#
+
