@@ -1,0 +1,8 @@
+configuration {
+   font: "FiraCode Nerd Font SemiBold 10";
+   location: 1;
+   modi: "window,run,drun,emoji";
+
+}
+
+@theme "/home/maayerali/.config/rofi/themes/nord.rasi"
