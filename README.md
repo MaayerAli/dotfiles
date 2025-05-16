@@ -1,0 +1,1 @@
+Here are my new dotfiles, new and improved and using a different theme. If you want to see my old setup, check the old branch as that has my x11 setup, while this is my wayland setup.![Tokyo](https://github.com/user-attachments/assets/d6759f47-aab2-4af9-a76c-3eedcac76a46)
